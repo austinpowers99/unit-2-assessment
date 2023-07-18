@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit 2 Assessment</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Grocery List</h1>
+    <% if (groceries.length === 0) { %>
+      <h3>There are no groceries yet!</h3>
+      <% } else { %>
+        <ul>
+          <% groceries.forEach(function(grocery) { %>
+            <li>
+              Grocery: <%= grocery.grocery %> - <%= grocery.need ? 'Still needed' : 'No needed' %>
+            </li>
+          <% }); %>
+        </ul>
+      <% } %>
+
+    <form method="POST" action="/groceries">
+      <input type="text" name="grocery">
+      <input type="hidden" name="need">
+
+      <button type="submit">ADD TO LIST</button>
+    </form>
+  </body>
+</html>
